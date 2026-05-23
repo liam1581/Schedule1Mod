@@ -3,7 +3,7 @@
 public class BusinessIncome
 {
     private static Action _onMinutePass;
-    private static Preferences _prefs;
+    private static Preferences _prefs = null;
     private static Income _income;
     
     public static void Init(Preferences prefs)
