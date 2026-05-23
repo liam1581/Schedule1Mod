@@ -3,10 +3,10 @@ using Il2CppScheduleOne.Map;
 using Il2CppTMPro;
 using UnityEngine;
 
-namespace Schedule1Mod.Patches
+namespace Schedule1Mod.Mods.BetterCasino.Patches
 {
     [HarmonyPatch(typeof(TimedAccessZone), "Start")]
-    public static class Patch_TimedAccessZone
+    public static class Patch_TimedAccessZone_Casino
     {
         [HarmonyPostfix]
         public static void Postfix(TimedAccessZone __instance)

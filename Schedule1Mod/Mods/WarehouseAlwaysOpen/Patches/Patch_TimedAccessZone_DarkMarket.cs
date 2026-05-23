@@ -3,10 +3,10 @@ using Il2CppScheduleOne.Map;
 using Il2CppTMPro;
 using UnityEngine;
 
-namespace Schedule1Mod.Patches;
+namespace Schedule1Mod.Mods.WarehouseAlwaysOpen.Patches;
 
 [HarmonyPatch(typeof(TimedAccessZone), "Start")]
-public class Patch_IdkDuBastard
+public class Patch_TimedAccessZone_DarkMarket
 {
     [HarmonyPostfix]
     public static void Postfix(TimedAccessZone __instance)

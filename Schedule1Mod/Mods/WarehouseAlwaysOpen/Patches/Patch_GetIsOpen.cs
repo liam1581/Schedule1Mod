@@ -1,8 +1,7 @@
 ﻿using HarmonyLib;
 using Il2CppScheduleOne.Map;
-using Schedule1Mod.Config;
 
-namespace Schedule1Mod.Patches
+namespace Schedule1Mod.Mods.WarehouseAlwaysOpen.Patches
 {
     
     [HarmonyPatch(typeof(DarkMarketAccessZone), "GetIsOpen")]
@@ -15,11 +14,11 @@ namespace Schedule1Mod.Patches
             {
                 return;
             }
-            if (ConfigManager.Config.RequireRank)
+            if ((bool)Preferences.Settings["RequireRank"])
             {
                 __result = true;
             }
-            else if (ConfigManager.Config.AlwaysOpen)
+            else if ((bool)Preferences.Settings["AlwaysOpen"])
             {
                 __result = true;
             }

@@ -6,7 +6,7 @@ using MelonLoader;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace Schedule1Mod.Patches
+namespace Schedule1Mod.Mods.ShowCompassDistance.Patches
 {
     [HarmonyPatch(typeof(CompassManager), "UpdateElements")]
     public static class Patch_CompassManager

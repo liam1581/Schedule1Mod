@@ -4,7 +4,7 @@ using Il2CppScheduleOne.UI.Phone;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Schedule1Mod.Patches
+namespace Schedule1Mod.Mods.RevealCounterChance.Patches
 {
     [HarmonyPatch(typeof(CounterofferInterface))]
     public static class Patch_CounterofferInterface
@@ -12,7 +12,7 @@ namespace Schedule1Mod.Patches
         private static void UpdateConfirmButtonText(CounterofferInterface instance)
         {
             var componentInChildren = instance.ConfirmButton.GetComponentInChildren<Text>();
-            var num = Util.Util.EvaluateCounterofferPercentage(instance.selectedProduct, instance.quantity, instance.price, instance.conversation.sender.GetComponent<Customer>());
+            var num = Helper.EvaluateCounterofferPercentage(instance.selectedProduct, instance.quantity, instance.price, instance.conversation.sender.GetComponent<Customer>());
             componentInChildren.text = string.Format("Send ({0}%)", Mathf.RoundToInt(num));
         }
 

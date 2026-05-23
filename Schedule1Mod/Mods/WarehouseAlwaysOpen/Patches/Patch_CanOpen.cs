@@ -1,8 +1,7 @@
 ﻿using Il2CppScheduleOne.Doors;
 using HarmonyLib;
-using Schedule1Mod.Config;
 
-namespace Schedule1Mod.Patches
+namespace Schedule1Mod.Mods.WarehouseAlwaysOpen.Patches
 {
     [HarmonyPatch(typeof(DarkMarketRollerDoors), "CanOpen")]
     public static class Patch_CanOpen
@@ -10,7 +9,7 @@ namespace Schedule1Mod.Patches
         [HarmonyPostfix]
         private static void Postfix(ref bool __result)
         {
-            if (!__result && ConfigManager.Config.AlwaysOpen)
+            if (!__result && (bool)Preferences.Settings["AlwaysOpen"])
             {
                 __result = true; 
             }

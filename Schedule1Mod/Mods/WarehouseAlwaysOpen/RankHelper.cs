@@ -1,8 +1,7 @@
 ﻿using Il2CppScheduleOne.Levelling;
-using Schedule1Mod.Config;
 using Object = UnityEngine.Object;
 
-namespace Schedule1Mod.Util
+namespace Schedule1Mod.Mods.WarehouseAlwaysOpen
 {
     public static class RankHelper
     {
@@ -19,14 +18,14 @@ namespace Schedule1Mod.Util
             return result;
         }
 
-        public static bool HasRequiredRank()
+        public static bool HasRequiredRank(Preferences prefs)
         {
-            if (!ConfigManager.Config.RequireRank)
+            if (!prefs.RequireRank.Value)
             {
                 return true; 
             }
             LevelManager lvlMan = Object.FindObjectOfType<LevelManager>();
-            return lvlMan != null && lvlMan.Rank >= RankHelper.ParseRank(ConfigManager.Config.MinimumRank);
+            return lvlMan != null && lvlMan.Rank >= RankHelper.ParseRank(prefs.MinimumRank.Value);
         }
     }
 }
