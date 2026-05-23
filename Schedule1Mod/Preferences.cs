@@ -25,7 +25,7 @@ public class Preferences
     public MelonPreferences_Entry<string> KeybindLoad { get; private set; }
     public MelonPreferences_Entry<string> KeybindKill { get; private set; }
 
-    public static readonly Dictionary<string, object> Settings = new();
+    public static readonly Dictionary<string, object> All = new();
 
     public Preferences()
     {
@@ -53,7 +53,7 @@ public class Preferences
 
         KeybindSave = AddEntry(_saveModSettings, "SaveKey", "F9", "Keybinding for Saving the game", null);
         KeybindLoad = AddEntry(_saveModSettings, "LoadKey", "", "Keybind for Loading the last Save (NOT WORKING!!!)", null);
-        KeybindKill = AddEntry(_saveModSettings, "KillKey", "", "Keybind for Killing the player", null);
+        KeybindKill = AddEntry(_saveModSettings, "KillKey", "F10", "Keybind for Killing the player", null);
     }
 
     public void SaveToFile()
@@ -66,7 +66,7 @@ public class Preferences
 
     MelonPreferences_Entry<T> AddEntry<T>(MelonPreferences_Category cat, string id, T def, string dispName, string oldId)
     {
-        Settings.Add(id, def);
+        All.Add(id, def);
         return cat.CreateEntry(id, def, dispName, oldIdentifier: oldId);
     }
 }

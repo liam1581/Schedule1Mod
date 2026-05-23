@@ -8,7 +8,7 @@ namespace Schedule1Mod.Mods.WarehouseAlwaysOpen.Patches
     {
         private static void Postfix(ref bool __result)
         {
-            if (!__result && (bool)Preferences.Settings["AlwaysOpen"])
+            if (!__result && (bool)Preferences.All["AlwaysOpen"])
             {
                 __result = true;
             }

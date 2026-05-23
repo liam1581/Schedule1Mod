@@ -14,11 +14,11 @@ namespace Schedule1Mod.Mods.WarehouseAlwaysOpen.Patches
             {
                 return;
             }
-            if ((bool)Preferences.Settings["RequireRank"])
+            if ((bool)Preferences.All["RequireRank"])
             {
                 __result = true;
             }
-            else if ((bool)Preferences.Settings["AlwaysOpen"])
+            else if ((bool)Preferences.All["AlwaysOpen"])
             {
                 __result = true;
             }
